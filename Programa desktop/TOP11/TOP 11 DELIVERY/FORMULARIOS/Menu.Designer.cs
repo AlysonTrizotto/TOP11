@@ -29,8 +29,12 @@ namespace TOP_11_DELIVERY
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BrMenu = new System.Windows.Forms.MenuStrip();
             this.MenuCadastro = new System.Windows.Forms.ToolStripMenuItem();
+            this.cLIENTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CadastroCardapio = new System.Windows.Forms.ToolStripMenuItem();
             this.CadastroCategoria = new System.Windows.Forms.ToolStripMenuItem();
             this.eDITARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,9 +51,20 @@ namespace TOP_11_DELIVERY
             this.lblTempo = new System.Windows.Forms.Label();
             this.btnImpressao = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.cLIENTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.dtGridBusca = new System.Windows.Forms.DataGridView();
+            this.PED_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_ENDERECO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CARD_NOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_NOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.C_QUANTIDADE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.P_VALOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FORM_PAG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TROCO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_CARD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Numero)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridBusca)).BeginInit();
             this.SuspendLayout();
             // 
             // BrMenu
@@ -81,6 +96,13 @@ namespace TOP_11_DELIVERY
             this.MenuCadastro.Size = new System.Drawing.Size(79, 19);
             this.MenuCadastro.Text = "CADASTRO";
             this.MenuCadastro.Click += new System.EventHandler(this.MenuCadastro_Click);
+            // 
+            // cLIENTEToolStripMenuItem
+            // 
+            this.cLIENTEToolStripMenuItem.Name = "cLIENTEToolStripMenuItem";
+            this.cLIENTEToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.cLIENTEToolStripMenuItem.Text = "CLIENTE";
+            this.cLIENTEToolStripMenuItem.Click += new System.EventHandler(this.cLIENTEToolStripMenuItem_Click);
             // 
             // CadastroCardapio
             // 
@@ -226,25 +248,113 @@ namespace TOP_11_DELIVERY
             this.btnImpressao.TabIndex = 5;
             this.btnImpressao.Text = "IMPRIMIR";
             this.btnImpressao.UseVisualStyleBackColor = true;
-            this.btnImpressao.Visible = false;
             this.btnImpressao.Click += new System.EventHandler(this.btnImpressao_Click);
             // 
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // cLIENTEToolStripMenuItem
+            // timer1
             // 
-            this.cLIENTEToolStripMenuItem.Name = "cLIENTEToolStripMenuItem";
-            this.cLIENTEToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-            this.cLIENTEToolStripMenuItem.Text = "CLIENTE";
-            this.cLIENTEToolStripMenuItem.Click += new System.EventHandler(this.cLIENTEToolStripMenuItem_Click);
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // dtGridBusca
+            // 
+            this.dtGridBusca.AllowUserToAddRows = false;
+            this.dtGridBusca.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridBusca.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtGridBusca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridBusca.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PED_ID,
+            this.C_ENDERECO,
+            this.CARD_NOME,
+            this.C_NOME,
+            this.C_QUANTIDADE,
+            this.P_VALOR,
+            this.FORM_PAG,
+            this.TROCO,
+            this.ID_CARD});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtGridBusca.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtGridBusca.Location = new System.Drawing.Point(12, 177);
+            this.dtGridBusca.Name = "dtGridBusca";
+            this.dtGridBusca.ReadOnly = true;
+            this.dtGridBusca.Size = new System.Drawing.Size(927, 150);
+            this.dtGridBusca.TabIndex = 6;
+            // 
+            // PED_ID
+            // 
+            this.PED_ID.HeaderText = "ID";
+            this.PED_ID.Name = "PED_ID";
+            this.PED_ID.ReadOnly = true;
+            // 
+            // C_ENDERECO
+            // 
+            this.C_ENDERECO.HeaderText = "ENDEREÇO";
+            this.C_ENDERECO.Name = "C_ENDERECO";
+            this.C_ENDERECO.ReadOnly = true;
+            // 
+            // CARD_NOME
+            // 
+            this.CARD_NOME.HeaderText = "CARDAPIO";
+            this.CARD_NOME.Name = "CARD_NOME";
+            this.CARD_NOME.ReadOnly = true;
+            // 
+            // C_NOME
+            // 
+            this.C_NOME.HeaderText = "NOME";
+            this.C_NOME.Name = "C_NOME";
+            this.C_NOME.ReadOnly = true;
+            // 
+            // C_QUANTIDADE
+            // 
+            this.C_QUANTIDADE.HeaderText = "QUANTIDADE";
+            this.C_QUANTIDADE.Name = "C_QUANTIDADE";
+            this.C_QUANTIDADE.ReadOnly = true;
+            // 
+            // P_VALOR
+            // 
+            this.P_VALOR.HeaderText = "VALOR";
+            this.P_VALOR.Name = "P_VALOR";
+            this.P_VALOR.ReadOnly = true;
+            // 
+            // FORM_PAG
+            // 
+            this.FORM_PAG.HeaderText = "FORMA DE PAGAMENTO";
+            this.FORM_PAG.Name = "FORM_PAG";
+            this.FORM_PAG.ReadOnly = true;
+            // 
+            // TROCO
+            // 
+            this.TROCO.HeaderText = "TROCO";
+            this.TROCO.Name = "TROCO";
+            this.TROCO.ReadOnly = true;
+            // 
+            // ID_CARD
+            // 
+            this.ID_CARD.HeaderText = "ID_CARDAPIO";
+            this.ID_CARD.Name = "ID_CARD";
+            this.ID_CARD.ReadOnly = true;
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.dtGridBusca);
             this.Controls.Add(this.btnImpressao);
             this.Controls.Add(this.lblTempo);
             this.Controls.Add(this.btnSalvaHora);
@@ -264,6 +374,7 @@ namespace TOP_11_DELIVERY
             this.BrMenu.ResumeLayout(false);
             this.BrMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Numero)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridBusca)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,5 +400,16 @@ namespace TOP_11_DELIVERY
         public System.Windows.Forms.ToolStripMenuItem menuSair;
         public System.Windows.Forms.MenuStrip BrMenu;
         public System.Windows.Forms.ToolStripMenuItem cLIENTEToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridView dtGridBusca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PED_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C_ENDERECO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CARD_NOME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C_NOME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn C_QUANTIDADE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn P_VALOR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FORM_PAG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TROCO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_CARD;
     }
 }

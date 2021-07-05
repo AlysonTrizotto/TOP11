@@ -1,5 +1,7 @@
 ﻿using Npgsql;
 using System;
+using System.Data;
+using System.Drawing;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 
@@ -101,86 +103,66 @@ namespace TOP_11_DELIVERY
 
         private void btnImpressao_Click(object sender, EventArgs e)
         {
-            //// printDocument1.Print();
+             printDocument1.Print();
             //string texto = "trabalhando com impressão";
-
+            /*
             #region QUERY
-            ////Abrindo conexao
-            //conexao.Open();
-            ////Limpa as linhas...
-            //DataViewPedidos.Rows.Clear();
+            //Abrindo conexao
+            conexao.Open();
+            //Limpa as linhas...
+            dtGridBusca.Rows.Clear();
 
-            //try
-            //{
-            //    string query = "Select P.pedidos_id, C.clietne_nome, C.cliente_endereco, Card.card_nome, CP.quant, " +
-            //        "	P.pedidos_valor, F.pag_descricao, P.pedidos_troco " +
-            //        " From pedidos AS P, cliente AS C, cardapio AS Card, card_ped AS CP, form_pag AS F " +
-            //        " WHERE  P.pedidos_id = CP.id_ped AND " +
-            //        "    Card.card_id = CP.id_card  AND " +
-            //        "    P.pedidos_cpf_clietne_fk = C.cliente_cpf AND " +
-            //        "  P.pedidos_id_form_pgt = F.pag_id AND " +
-            //        "  P.pedidos_status LIKE 'ABERTO';";
+            try
+            {
+                string query = " SELECT pedidos.pedidos_id, card_ped.quant, cardapio.card_nome, pedidos.pedidos_valor, " +
+                    " pedidos.pedidos_data, pedidos.pedidos_hora, pedidos.pedidos_status, pedidos.pedidos_troco, " +
+                    " bairro.bairro_nome, cliente.cliente_nome,  form_pag.pag_descricao, " +
+                    " card_ped.id_card, card_ped.id_ped  FROM pedidos, bairro, cliente, cardapio, form_pag, card_ped " +
+                    "  WHERE pedidos.pedidos_id_bairro_fk = bairro.bairro_id AND " +
+                    "  pedidos.pedidos_cpf_cliente_fk = cliente.cliente_cpf AND " +
+                    "  card_ped.id_ped = pedidos.pedidos_id AND " +
+                    "  card_ped.id_card = cardapio.card_id AND " +
+                    "  pedidos.pedidos_id_form_pgt = form_pag.pag_id AND " +
+                                        " pedidos.pedidos_status LIKE 'ABERTO';";                
 
-            //    string Pedidos_id = "P.pedidos_id";
-            //    string clietne_nome = "C.clietne_nome";
-            //    string cliente_endereco = "C.cliente_endereco";
-            //    string card_nome = "Card.card_nome";
-            //    string CPquant = "CP.quant";
-            //    string pedidos_valor = "P.pedidos_valor";
-            //    string pag_descricao = "F.pag_descricao";
-            //    string troco = "P.pedidos_troco";
-            //    string CPid_card = "CP.id_card";
-            //    string Card_id = "Card.card_id";
-            //    string CPid_ped = "CP.id_ped";
+                DataTable dados = new DataTable();
 
-            //    while (Card_id == CPid_card && Pedidos_id == CPid_ped)
-            //    {
-            //        texto = texto + ", " + card_nome;
-            //    }
+                NpgsqlDataAdapter adaptador = new NpgsqlDataAdapter(query, conexao);
+                adaptador.Fill(dados);
 
-            //    label2.Text = texto;
-
-            //    DataTable dados = new DataTable();
-
-            //    NpgsqlDataAdapter adaptador = new NpgsqlDataAdapter(query, conexao);
-            //    adaptador.Fill(dados);
-
-            //    foreach (DataRow linha in dados.Rows)
-            //    {
-            //        DataViewPedidos.Rows.Add(linha.ItemArray);
-
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    conexao.Close();
-            //    MessageBox.Show(ex.Message, "Erro no Banco de Dados!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    DataViewPedidos.Rows.Clear();
-            //}
-            //finally
-            //{
-            //    conexao.Close();
-            //}
-
-            #endregion
+                foreach (DataRow linha in dados.Rows)
+                {
+                    dtGridBusca.Rows.Add(linha.ItemArray);
+                }
+            }
+            catch (Exception ex)
+            {
+                conexao.Close();
+                MessageBox.Show(ex.Message, "Erro no Banco de Dados!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dtGridBusca.Rows.Clear();
+            }
+            finally
+            {
+                conexao.Close();
+            } 
+            #endregion*/
         }
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
 
 
-            #region IMPRIMINDO
+            #region Parte 1
 
+            //Preparar os dados
+            string texto = "Trabalhando com impressão";
+            Font fonte = new Font("Arial", 20, FontStyle.Bold, GraphicsUnit.Point);
+            Brush pincel = new SolidBrush(Color.Black);
+            Point pontoInicial = new Point(100, 50);
 
-            // Font letra = new Font("Arial", 20, FontStyle.Bold, GraphicsUnit.Point);
-            // Brush pincel = new SolidBrush(Color.Black);
-            // Point pontoInicial = new Point(100, 50);
-
-
-            // //Desenhar o documento para ser impresso
-            ////e.Graphics.DrawString(texto, letra, pincel, pontoInicial);
-
-
+            //desenhar o documento para imprimir
+            e.Graphics.DrawString(texto, fonte, pincel, pontoInicial); 
+            
             #endregion
         }
 
@@ -264,6 +246,11 @@ namespace TOP_11_DELIVERY
         {
             Cliente cliente = new Cliente();
             cliente.Show();
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
 
         }
     }
