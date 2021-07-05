@@ -17,9 +17,19 @@ namespace Vendas.Telas
             InitializeComponent();
         }
 
+        public Confirmacao(int x, string y)
+        {
+            InitializeComponent();
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            Fechamento fechamento = new Fechamento();
+            fechamento.Show();
+
+            this.Close();
+
         }
 
         private void btnNao_Click(object sender, EventArgs e)
