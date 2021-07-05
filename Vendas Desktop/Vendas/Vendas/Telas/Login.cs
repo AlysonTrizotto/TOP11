@@ -47,7 +47,7 @@ namespace Vendas
                 {
                     vendas.Show();
                     conexao.Close();
-                    MessageBox.Show("Bem vindo ADMINISTRADOR", "BEM VINDO!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                   // MessageBox.Show("Bem vindo ADMINISTRADOR", "BEM VINDO!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     
                     //this.Hide();
                 }
@@ -56,7 +56,7 @@ namespace Vendas
                     
                     vendas.Show();
                     conexao.Close();                    
-                    this.Hide();
+                    
                 }
             }
             else
@@ -78,6 +78,8 @@ namespace Vendas
             txtLogin.Select();
             //fechando conexão
             conexao.Close();
+
+            this.Hide();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
