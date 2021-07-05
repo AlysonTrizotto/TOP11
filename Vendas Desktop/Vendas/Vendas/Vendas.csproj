@@ -81,7 +81,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Acesso.cs" />
-    <Compile Include="Classes\Passagem.cs" />
     <Compile Include="Telas\Fechamento.cs">
       <SubType>Form</SubType>
     </Compile>

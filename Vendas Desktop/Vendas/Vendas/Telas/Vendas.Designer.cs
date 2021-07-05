@@ -29,12 +29,12 @@ namespace Vendas
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridItens = new System.Windows.Forms.DataGridView();
             this.CUPOM1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRODUTO1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +71,7 @@ namespace Vendas
             this.button1 = new System.Windows.Forms.Button();
             this.cBSemCPF = new System.Windows.Forms.CheckBox();
             this.cBSemBairro = new System.Windows.Forms.CheckBox();
-            this.Comanda_venda = new System.Windows.Forms.Label();
+            this.btnLimpaTudo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItens)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBairro)).BeginInit();
@@ -82,53 +82,53 @@ namespace Vendas
             // 
             this.dataGridItens.AllowUserToAddRows = false;
             this.dataGridItens.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = "0,0";
-            this.dataGridItens.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Format = "N2";
+            dataGridViewCellStyle7.NullValue = "0,0";
+            this.dataGridItens.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridItens.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridItens.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.Format = "N2";
+            dataGridViewCellStyle8.NullValue = null;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridItens.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridItens.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridItens.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CUPOM1,
             this.PRODUTO1,
             this.QUANTIDADE,
             this.PRECO});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridItens.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.Format = "N2";
+            dataGridViewCellStyle9.NullValue = null;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridItens.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridItens.Location = new System.Drawing.Point(894, 305);
             this.dataGridItens.Name = "dataGridItens";
             this.dataGridItens.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridItens.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dataGridItens.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.Format = "N2";
+            dataGridViewCellStyle10.NullValue = null;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridItens.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.Format = "N2";
+            dataGridViewCellStyle11.NullValue = null;
+            this.dataGridItens.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridItens.Size = new System.Drawing.Size(443, 394);
             this.dataGridItens.TabIndex = 1;
             // 
@@ -160,6 +160,7 @@ namespace Vendas
             // 
             this.txtProduto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProduto.Enabled = false;
             this.txtProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProduto.Location = new System.Drawing.Point(104, 26);
             this.txtProduto.Name = "txtProduto";
@@ -171,6 +172,7 @@ namespace Vendas
             // 
             this.txtCPF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCPF.Enabled = false;
             this.txtCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPF.Location = new System.Drawing.Point(104, 101);
             this.txtCPF.Name = "txtCPF";
@@ -201,6 +203,7 @@ namespace Vendas
             // 
             this.txtQuantidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtQuantidade.Enabled = false;
             this.txtQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtQuantidade.Location = new System.Drawing.Point(104, 65);
             this.txtQuantidade.Name = "txtQuantidade";
@@ -286,6 +289,7 @@ namespace Vendas
             this.ID_BAIRRO,
             this.BAIRRO,
             this.TAXA});
+            this.dataGridBairro.Enabled = false;
             this.dataGridBairro.Location = new System.Drawing.Point(894, 137);
             this.dataGridBairro.Name = "dataGridBairro";
             this.dataGridBairro.ReadOnly = true;
@@ -366,6 +370,7 @@ namespace Vendas
             this.btnBuscaVendas.TabIndex = 18;
             this.btnBuscaVendas.Text = "Busca vendas";
             this.btnBuscaVendas.UseVisualStyleBackColor = true;
+            this.btnBuscaVendas.Visible = false;
             this.btnBuscaVendas.Click += new System.EventHandler(this.btnBuscaVendas_Click);
             // 
             // btnBuscaBairros
@@ -405,9 +410,9 @@ namespace Vendas
             // 
             this.dataGridProduto.AllowUserToAddRows = false;
             this.dataGridProduto.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = "0,0";
-            this.dataGridProduto.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Format = "N2";
+            dataGridViewCellStyle12.NullValue = "0,0";
+            this.dataGridProduto.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -471,6 +476,7 @@ namespace Vendas
             // cBSemCPF
             // 
             this.cBSemCPF.AutoSize = true;
+            this.cBSemCPF.Enabled = false;
             this.cBSemCPF.Location = new System.Drawing.Point(104, 137);
             this.cBSemCPF.Name = "cBSemCPF";
             this.cBSemCPF.Size = new System.Drawing.Size(142, 17);
@@ -481,6 +487,7 @@ namespace Vendas
             // cBSemBairro
             // 
             this.cBSemBairro.AutoSize = true;
+            this.cBSemBairro.Enabled = false;
             this.cBSemBairro.Location = new System.Drawing.Point(104, 160);
             this.cBSemBairro.Name = "cBSemBairro";
             this.cBSemBairro.Size = new System.Drawing.Size(148, 17);
@@ -488,21 +495,23 @@ namespace Vendas
             this.cBSemBairro.Text = "Realizar venda sem bairro";
             this.cBSemBairro.UseVisualStyleBackColor = true;
             // 
-            // Comanda_venda
+            // btnLimpaTudo
             // 
-            this.Comanda_venda.AutoSize = true;
-            this.Comanda_venda.Location = new System.Drawing.Point(9, 9);
-            this.Comanda_venda.Name = "Comanda_venda";
-            this.Comanda_venda.Size = new System.Drawing.Size(61, 13);
-            this.Comanda_venda.TabIndex = 101;
-            this.Comanda_venda.Text = "PRODUTO";
+            this.btnLimpaTudo.Location = new System.Drawing.Point(379, 175);
+            this.btnLimpaTudo.Name = "btnLimpaTudo";
+            this.btnLimpaTudo.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpaTudo.TabIndex = 101;
+            this.btnLimpaTudo.Text = "Limpa Tudo";
+            this.btnLimpaTudo.UseVisualStyleBackColor = true;
+            this.btnLimpaTudo.Visible = false;
+            this.btnLimpaTudo.Click += new System.EventHandler(this.btnLimpaTudo_Click);
             // 
             // Vendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1352, 711);
-            this.Controls.Add(this.Comanda_venda);
+            this.Controls.Add(this.btnLimpaTudo);
             this.Controls.Add(this.cBSemBairro);
             this.Controls.Add(this.cBSemCPF);
             this.Controls.Add(this.dataGridItens);
@@ -531,6 +540,7 @@ namespace Vendas
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Vendas_FormClosed);
             this.Load += new System.EventHandler(this.Vendas_Load);
+            this.Shown += new System.EventHandler(this.Vendas_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItens)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBairro)).EndInit();
@@ -541,27 +551,18 @@ namespace Vendas
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtProduto;
-        private System.Windows.Forms.TextBox txtCPF;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtQuantidade;
-        private System.Windows.Forms.Button btnFinaliza;
-        private System.Windows.Forms.Button btnCancelamento;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView dataGridBairro;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_BAIRRO;
         private System.Windows.Forms.DataGridViewTextBoxColumn BAIRRO;
         private System.Windows.Forms.DataGridViewTextBoxColumn TAXA;
-        private System.Windows.Forms.Label lblQuantidade;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridItens;
-        private System.Windows.Forms.Button btnNovaVenda;
         private System.Windows.Forms.Button btnBuscaVendas;
-        private System.Windows.Forms.Button btnBuscaBairros;
         private System.Windows.Forms.Button btnBuscaItens;
         private System.Windows.Forms.Button btnAdicionaItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn CUPOM1;
@@ -577,6 +578,15 @@ namespace Vendas
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox cBSemCPF;
         private System.Windows.Forms.CheckBox cBSemBairro;
-        public System.Windows.Forms.Label Comanda_venda;
+        public System.Windows.Forms.TextBox txtProduto;
+        public System.Windows.Forms.TextBox txtCPF;
+        public System.Windows.Forms.TextBox txtQuantidade;
+        public System.Windows.Forms.Button btnFinaliza;
+        public System.Windows.Forms.Button btnCancelamento;
+        public System.Windows.Forms.Button btnNovaVenda;
+        public System.Windows.Forms.Label lblTotal;
+        public System.Windows.Forms.Label lblQuantidade;
+        public System.Windows.Forms.Button btnBuscaBairros;
+        public System.Windows.Forms.Button btnLimpaTudo;
     }
 }
