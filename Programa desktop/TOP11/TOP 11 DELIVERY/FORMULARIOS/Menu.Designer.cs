@@ -30,8 +30,6 @@ namespace TOP_11_DELIVERY
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BrMenu = new System.Windows.Forms.MenuStrip();
             this.MenuCadastro = new System.Windows.Forms.ToolStripMenuItem();
             this.cLIENTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,19 +50,27 @@ namespace TOP_11_DELIVERY
             this.btnImpressao = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dtGridBusca = new System.Windows.Forms.DataGridView();
-            this.PED_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_ENDERECO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CARD_NOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_NOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.C_QUANTIDADE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.P_VALOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FORM_PAG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TROCO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_CARD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtProdutos = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QUANTIDADE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CARDÁPIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VALOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtPed = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Numero)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridBusca)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtProdutos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtPed)).BeginInit();
             this.SuspendLayout();
             // 
             // BrMenu
@@ -258,103 +264,159 @@ namespace TOP_11_DELIVERY
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // dtGridBusca
+            // dtProdutos
             // 
-            this.dtGridBusca.AllowUserToAddRows = false;
-            this.dtGridBusca.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridBusca.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtGridBusca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridBusca.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PED_ID,
-            this.C_ENDERECO,
-            this.CARD_NOME,
-            this.C_NOME,
-            this.C_QUANTIDADE,
-            this.P_VALOR,
-            this.FORM_PAG,
-            this.TROCO,
-            this.ID_CARD});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtGridBusca.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtGridBusca.Location = new System.Drawing.Point(12, 177);
-            this.dtGridBusca.Name = "dtGridBusca";
-            this.dtGridBusca.ReadOnly = true;
-            this.dtGridBusca.Size = new System.Drawing.Size(927, 150);
-            this.dtGridBusca.TabIndex = 6;
+            this.dtProdutos.AllowUserToAddRows = false;
+            this.dtProdutos.AllowUserToDeleteRows = false;
+            this.dtProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.QUANTIDADE,
+            this.CARDÁPIO,
+            this.VALOR});
+            this.dtProdutos.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtProdutos.Location = new System.Drawing.Point(0, 553);
+            this.dtProdutos.Name = "dtProdutos";
+            this.dtProdutos.ReadOnly = true;
+            this.dtProdutos.Size = new System.Drawing.Size(1200, 139);
+            this.dtProdutos.TabIndex = 6;
             // 
-            // PED_ID
+            // ID
             // 
-            this.PED_ID.HeaderText = "ID";
-            this.PED_ID.Name = "PED_ID";
-            this.PED_ID.ReadOnly = true;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 50;
             // 
-            // C_ENDERECO
+            // QUANTIDADE
             // 
-            this.C_ENDERECO.HeaderText = "ENDEREÇO";
-            this.C_ENDERECO.Name = "C_ENDERECO";
-            this.C_ENDERECO.ReadOnly = true;
+            this.QUANTIDADE.HeaderText = "QUANTIDADE";
+            this.QUANTIDADE.Name = "QUANTIDADE";
+            this.QUANTIDADE.ReadOnly = true;
+            this.QUANTIDADE.Width = 80;
             // 
-            // CARD_NOME
+            // CARDÁPIO
             // 
-            this.CARD_NOME.HeaderText = "CARDAPIO";
-            this.CARD_NOME.Name = "CARD_NOME";
-            this.CARD_NOME.ReadOnly = true;
+            this.CARDÁPIO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CARDÁPIO.HeaderText = "CARDÁPIO";
+            this.CARDÁPIO.Name = "CARDÁPIO";
+            this.CARDÁPIO.ReadOnly = true;
             // 
-            // C_NOME
+            // VALOR
             // 
-            this.C_NOME.HeaderText = "NOME";
-            this.C_NOME.Name = "C_NOME";
-            this.C_NOME.ReadOnly = true;
+            this.VALOR.HeaderText = "VALOR";
+            this.VALOR.Name = "VALOR";
+            this.VALOR.ReadOnly = true;
+            this.VALOR.Width = 80;
             // 
-            // C_QUANTIDADE
+            // dtPed
             // 
-            this.C_QUANTIDADE.HeaderText = "QUANTIDADE";
-            this.C_QUANTIDADE.Name = "C_QUANTIDADE";
-            this.C_QUANTIDADE.ReadOnly = true;
+            this.dtPed.AllowUserToAddRows = false;
+            this.dtPed.AllowUserToDeleteRows = false;
+            this.dtPed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtPed.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11});
+            this.dtPed.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dtPed.Location = new System.Drawing.Point(0, 414);
+            this.dtPed.Name = "dtPed";
+            this.dtPed.ReadOnly = true;
+            this.dtPed.Size = new System.Drawing.Size(1200, 139);
+            this.dtPed.TabIndex = 7;
             // 
-            // P_VALOR
+            // dataGridViewTextBoxColumn1
             // 
-            this.P_VALOR.HeaderText = "VALOR";
-            this.P_VALOR.Name = "P_VALOR";
-            this.P_VALOR.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 50;
             // 
-            // FORM_PAG
+            // dataGridViewTextBoxColumn2
             // 
-            this.FORM_PAG.HeaderText = "FORMA DE PAGAMENTO";
-            this.FORM_PAG.Name = "FORM_PAG";
-            this.FORM_PAG.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.HeaderText = "QUANTIDADE";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 80;
             // 
-            // TROCO
+            // dataGridViewTextBoxColumn3
             // 
-            this.TROCO.HeaderText = "TROCO";
-            this.TROCO.Name = "TROCO";
-            this.TROCO.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.HeaderText = "CARDÁPIO";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // ID_CARD
+            // dataGridViewTextBoxColumn4
             // 
-            this.ID_CARD.HeaderText = "ID_CARDAPIO";
-            this.ID_CARD.Name = "ID_CARD";
-            this.ID_CARD.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.HeaderText = "VALOR";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "DATA";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "HORA";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "STATUS";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "TROCO";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn9.HeaderText = "BAIRRO";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn10.HeaderText = "CLIENTE";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "FORMA DE PAGAMENTO";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 80;
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
-            this.Controls.Add(this.dtGridBusca);
+            this.Controls.Add(this.dtPed);
+            this.Controls.Add(this.dtProdutos);
             this.Controls.Add(this.btnImpressao);
             this.Controls.Add(this.lblTempo);
             this.Controls.Add(this.btnSalvaHora);
@@ -367,14 +429,15 @@ namespace TOP_11_DELIVERY
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Menu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Menu_FormClosed);
-            this.Load += new System.EventHandler(this.Menu_Load);
             this.Shown += new System.EventHandler(this.Menu_Shown);
             this.BrMenu.ResumeLayout(false);
             this.BrMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Numero)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridBusca)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtProdutos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtPed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -401,15 +464,22 @@ namespace TOP_11_DELIVERY
         public System.Windows.Forms.MenuStrip BrMenu;
         public System.Windows.Forms.ToolStripMenuItem cLIENTEToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.DataGridView dtGridBusca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PED_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn C_ENDERECO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CARD_NOME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn C_NOME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn C_QUANTIDADE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn P_VALOR;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FORM_PAG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TROCO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID_CARD;
+        private System.Windows.Forms.DataGridView dtProdutos;
+        private System.Windows.Forms.DataGridView dtPed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QUANTIDADE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CARDÁPIO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VALOR;
     }
 }

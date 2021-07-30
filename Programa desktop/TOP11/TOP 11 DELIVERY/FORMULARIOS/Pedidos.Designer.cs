@@ -362,6 +362,7 @@ namespace TOP_11_DELIVERY
             this.rbSaida.TabStop = true;
             this.rbSaida.Text = "SAIU PARA ENTREGA";
             this.rbSaida.UseVisualStyleBackColor = true;
+            this.rbSaida.CheckedChanged += new System.EventHandler(this.rbSaida_CheckedChanged);
             // 
             // dtpInicial
             // 

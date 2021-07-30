@@ -940,15 +940,10 @@ namespace TOP_11_DELIVERY
                         comando.Connection = conexao;
 
 
-
+                        
                         comando.CommandText = "UPDATE pedidos SET pedidos_status = 'FECHADO' WHERE pedidos_id = " + ID + ";";
                         comando.ExecuteNonQuery();
                         comando.Dispose();
-
-
-
-                        MessageBox.Show("Editado com sucesso!", "Editado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
 
                     }
                     catch (Exception ex)
@@ -960,6 +955,9 @@ namespace TOP_11_DELIVERY
                     finally
                     {
                         conexao.Close();
+
+                        MessageBox.Show("Editado com sucesso!", "Editado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
                         rbSaida.Enabled = false;
                         rbFechamento.Enabled = false;
@@ -1060,6 +1058,11 @@ namespace TOP_11_DELIVERY
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbSaida_CheckedChanged(object sender, EventArgs e)
         {
 
         }
