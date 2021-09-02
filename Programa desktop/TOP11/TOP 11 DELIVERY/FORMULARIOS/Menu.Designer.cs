@@ -47,7 +47,6 @@ namespace TOP_11_DELIVERY
             this.Numero = new System.Windows.Forms.NumericUpDown();
             this.btnSalvaHora = new System.Windows.Forms.Button();
             this.lblTempo = new System.Windows.Forms.Label();
-            this.btnImpressao = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dtProdutos = new System.Windows.Forms.DataGridView();
@@ -67,6 +66,9 @@ namespace TOP_11_DELIVERY
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.lbl_SemComanda = new System.Windows.Forms.Label();
+            this.Buscar_Comandas = new System.Windows.Forms.Button();
             this.BrMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Numero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtProdutos)).BeginInit();
@@ -243,25 +245,13 @@ namespace TOP_11_DELIVERY
             this.lblTempo.TabIndex = 4;
             this.lblTempo.Text = "Tempo atual configurado: ";
             // 
-            // btnImpressao
-            // 
-            this.btnImpressao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImpressao.ForeColor = System.Drawing.Color.Black;
-            this.btnImpressao.Location = new System.Drawing.Point(26, 323);
-            this.btnImpressao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnImpressao.Name = "btnImpressao";
-            this.btnImpressao.Size = new System.Drawing.Size(143, 30);
-            this.btnImpressao.TabIndex = 5;
-            this.btnImpressao.Text = "IMPRIMIR";
-            this.btnImpressao.UseVisualStyleBackColor = true;
-            this.btnImpressao.Click += new System.EventHandler(this.btnImpressao_Click);
-            // 
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
             // timer1
             // 
+            this.timer1.Interval = 4000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // dtProdutos
@@ -410,14 +400,53 @@ namespace TOP_11_DELIVERY
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
             this.dataGridViewTextBoxColumn11.Width = 80;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.ForeColor = System.Drawing.Color.Black;
+            this.checkBox1.Location = new System.Drawing.Point(26, 134);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(232, 24);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "IMPRESSÃO AUTOMÁTICA";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox1.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
+            // 
+            // lbl_SemComanda
+            // 
+            this.lbl_SemComanda.AutoSize = true;
+            this.lbl_SemComanda.ForeColor = System.Drawing.Color.Black;
+            this.lbl_SemComanda.Location = new System.Drawing.Point(22, 174);
+            this.lbl_SemComanda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_SemComanda.Name = "lbl_SemComanda";
+            this.lbl_SemComanda.Size = new System.Drawing.Size(293, 20);
+            this.lbl_SemComanda.TabIndex = 9;
+            this.lbl_SemComanda.Text = "NÃO HÁ COMANDAS PARA IMPRIMIR";
+            // 
+            // Buscar_Comandas
+            // 
+            this.Buscar_Comandas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Buscar_Comandas.ForeColor = System.Drawing.Color.Black;
+            this.Buscar_Comandas.Location = new System.Drawing.Point(26, 216);
+            this.Buscar_Comandas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Buscar_Comandas.Name = "Buscar_Comandas";
+            this.Buscar_Comandas.Size = new System.Drawing.Size(143, 30);
+            this.Buscar_Comandas.TabIndex = 10;
+            this.Buscar_Comandas.Text = "SALVAR HORÁRIO";
+            this.Buscar_Comandas.UseVisualStyleBackColor = true;
+            this.Buscar_Comandas.Click += new System.EventHandler(this.Buscar_Comandas_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.Buscar_Comandas);
+            this.Controls.Add(this.lbl_SemComanda);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.dtPed);
             this.Controls.Add(this.dtProdutos);
-            this.Controls.Add(this.btnImpressao);
             this.Controls.Add(this.lblTempo);
             this.Controls.Add(this.btnSalvaHora);
             this.Controls.Add(this.Numero);
@@ -455,7 +484,6 @@ namespace TOP_11_DELIVERY
         private System.Windows.Forms.ToolStripMenuItem eDITARToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eXCLUIRToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fORMADEPAGAMENTOToolStripMenuItem;
-        private System.Windows.Forms.Button btnImpressao;
         private System.Drawing.Printing.PrintDocument printDocument1;
         public System.Windows.Forms.ToolStripMenuItem MenuCadastro;
         public System.Windows.Forms.ToolStripMenuItem menuPedidos;
@@ -481,5 +509,8 @@ namespace TOP_11_DELIVERY
         private System.Windows.Forms.DataGridViewTextBoxColumn QUANTIDADE;
         private System.Windows.Forms.DataGridViewTextBoxColumn CARDÁPIO;
         private System.Windows.Forms.DataGridViewTextBoxColumn VALOR;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label lbl_SemComanda;
+        private System.Windows.Forms.Button Buscar_Comandas;
     }
 }

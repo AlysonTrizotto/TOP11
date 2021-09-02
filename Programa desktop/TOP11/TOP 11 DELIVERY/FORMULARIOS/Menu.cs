@@ -154,6 +154,11 @@ namespace TOP_11_DELIVERY
             if (contagem != 0)
             {
                 produtos();
+                lbl_SemComanda.Visible = false;
+            }
+            else
+            {
+                lbl_SemComanda.Visible = true;
             }
 
         }
@@ -202,13 +207,6 @@ namespace TOP_11_DELIVERY
             }
             #endregion
         }
-
-        private void btnImpressao_Click(object sender, EventArgs e)
-        {
-            comanda();
-           
-        }
-
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
@@ -380,7 +378,30 @@ namespace TOP_11_DELIVERY
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            Buscar_Comandas_Click(null, null);
+        }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            if (checkBox1.Checked)
+            {
+                timer1.Start();
+            }
+            else
+            {
+                timer1.Stop();
+            }
+        }
+
+        private void checkBox1_CheckStateChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Buscar_Comandas_Click(object sender, EventArgs e)
+        {
+            comanda();
         }
     }
 }
