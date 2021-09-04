@@ -151,12 +151,11 @@ namespace Vendas
         private void btnBuscaBairro_Click(object sender, EventArgs e)
         {
             #region bairro
-            //abrindo conexao
-            conexao.Open();
-            dataGridBairro.Rows.Clear();
-
             try
             {
+                //abrindo conexao
+                conexao.Open();
+                dataGridBairro.Rows.Clear();
 
                 string BuscaVendas = "SELECT * FROM bairro;";
 
@@ -225,10 +224,10 @@ namespace Vendas
                 #region pegando valor do produto
                 if (dataGridItens.Rows.Count > 0)
                 {
-                    decimal vezes = 0;
+                    decimal ValorUnit = Convert.ToDecimal(dataGridItens.SelectedCells[0].OwningRow.Cells[3].Value);
                     int passaQuantidade = Convert.ToInt32(txtQuantidade.Text);
-                    vezes = Convert.ToDecimal(dataGridItens.SelectedCells[0].OwningRow.Cells[3].Value) * passaQuantidade;
-                    preco = preco + vezes;
+                    decimal valorTotal = ValorUnit * passaQuantidade;
+                    preco = preco + valorTotal;
                    
                     lblTotal.Text = preco.ToString("N3", new CultureInfo("pt-BR"));
                     contaItens = contaItens + passaQuantidade;
@@ -278,7 +277,7 @@ namespace Vendas
         {
             if (e.KeyChar == 13)
             {
-                if (txtProduto.Text != "" && txtQuantidade.Text != "")
+                if (txtProduto.Text != "0" && txtQuantidade.Text != "0")
                 {
                     btnAdicionaItem_Click(null, null);
                 }

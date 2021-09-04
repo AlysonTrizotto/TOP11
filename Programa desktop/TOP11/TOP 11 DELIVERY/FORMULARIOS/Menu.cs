@@ -39,11 +39,12 @@ namespace TOP_11_DELIVERY
 
         private void btnSalvaHora_Click(object sender, EventArgs e)
         {
-            //abrindo conexao
-            conexao.Open();
+            
 
             try
             {
+                //abrindo conexao
+                conexao.Open();
 
                 //passando a conexao para o comando
                 comando.Connection = conexao;
@@ -105,14 +106,13 @@ namespace TOP_11_DELIVERY
 
         public void comanda()
         {
-            conexao.Open();
-
-            dtPed.Rows.Clear();
-            
-
             #region
             try
             {
+                conexao.Open();
+
+                dtPed.Rows.Clear();
+
                 string query = "SELECT pedidos.pedidos_id, card_ped.quant, cardapio.card_nome, pedidos.pedidos_valor, " +
                     " pedidos.pedidos_data, pedidos.pedidos_hora, pedidos.pedidos_status, pedidos.pedidos_troco, " +
                     " bairro.bairro_nome, cliente.cliente_nome,  form_pag.pag_descricao, " +
@@ -123,8 +123,6 @@ namespace TOP_11_DELIVERY
                     "  card_ped.id_card = cardapio.card_id AND " +
                     "  pedidos.pedidos_id_form_pgt = form_pag.pag_id AND " +
                                         " pedidos.pedidos_status LIKE 'ABERTO';";
-
-
 
                 DataTable dados = new DataTable();
 
@@ -145,22 +143,20 @@ namespace TOP_11_DELIVERY
             finally
             {
                 conexao.Close();
-                
+
+                int contagem = dtPed.Rows.Count;
+
+                if (contagem != 0)
+                {
+                    produtos();
+                    lbl_SemComanda.Visible = false;
+                }
+                else
+                {
+                    lbl_SemComanda.Visible = true;
+                }
             }
             #endregion
-
-            int contagem = dtPed.Rows.Count;
-
-            if (contagem != 0)
-            {
-                produtos();
-                lbl_SemComanda.Visible = false;
-            }
-            else
-            {
-                lbl_SemComanda.Visible = true;
-            }
-
         }
 
         public void produtos()
