@@ -18,8 +18,8 @@ namespace Vendas
         NpgsqlConnection conexao = new NpgsqlConnection("Host=localhost;Database=Top11;Username=postgres;Password=Matematicas2");
 
         public int comanda;
-
         
+
         public Fechamento()
         {
             InitializeComponent();
@@ -30,25 +30,20 @@ namespace Vendas
             InitializeComponent();
             txtFechamento.Text = valor;
             comanda = cNota;
-            ImprimeComanda();
         }
 
 
         private void FINALIZAR_Click(object sender, EventArgs e)
         {
-
             if (rbDebito.Checked)
-            {
-               
+            {               
                 try
                 {
-
                     conexao.Open();
                     NpgsqlCommand comando = new NpgsqlCommand();
                     comando.Connection = conexao;
                     comando.CommandText = "UPDATE pedidos SET pedidos_status = 'ABERTO', pedidos_id_form_pgt = '2' WHERE pedidos_id = " + comanda + ";";
                     comando.ExecuteNonQuery();
-
                 }
                 catch (Exception ex)
                 {
@@ -56,23 +51,18 @@ namespace Vendas
                 }
                 finally
                 {
-                    conexao.Close();
-
-                   
+                    conexao.Close();                   
                 }
-
             }
             else if (rbCredito.Checked)
             {
                 try
                 {
-
                     conexao.Open();
                     NpgsqlCommand comando = new NpgsqlCommand();
                     comando.Connection = conexao;
                     comando.CommandText = "UPDATE pedidos SET pedidos_status = 'ABERTO', pedidos_id_form_pgt = '1' WHERE pedidos_id = " + comanda + ";";
                     comando.ExecuteNonQuery();
-
                 }
                 catch (Exception ex)
                 {
@@ -80,9 +70,7 @@ namespace Vendas
                 }
                 finally
                 {
-                    conexao.Close();
-
-                   
+                    conexao.Close();                   
                 }
             }
             else if (rbDinheiro.Checked)
@@ -92,13 +80,11 @@ namespace Vendas
 
                 try
                 {
-
                     conexao.Open();
                     NpgsqlCommand comando = new NpgsqlCommand();
                     comando.Connection = conexao;
                     comando.CommandText = "UPDATE pedidos SET pedidos_status = 'ABERTO', pedidos_troco = '" + troco + "', pedidos_id_form_pgt = '3' WHERE pedidos_id = " + comanda + ";";
                     comando.ExecuteNonQuery();
-
                 }
                 catch (Exception ex)
                 {
@@ -106,22 +92,18 @@ namespace Vendas
                 }
                 finally
                 {
-                    conexao.Close();
-
-                   
+                    conexao.Close();                   
                 }
             }
             else if (rbPIX.Checked)
             {
                 try
                 {
-
                     conexao.Open();
                     NpgsqlCommand comando = new NpgsqlCommand();
                     comando.Connection = conexao;
                     comando.CommandText = "UPDATE pedidos SET pedidos_status = 'ABERTO', pedidos_id_form_pgt = '4' WHERE pedidos_id = " + comanda + ";";
                     comando.ExecuteNonQuery();
-
                 }
                 catch (Exception ex)
                 {
@@ -129,21 +111,15 @@ namespace Vendas
                 }
                 finally
                 {
-                    conexao.Close();
-
-                   
+                    conexao.Close();                   
                 }
             }
 
-            printDocument1.Print();
+            ImprimeComanda();           
         }
 
         private void CANCELAR_Click(object sender, EventArgs e)
         {
-            Vendas vendas = new Vendas();
-
-            vendas.Show();
-
             this.Close();
         }
 
@@ -449,8 +425,6 @@ namespace Vendas
 
         public void produtos()
         {
-            
-
             #region try catch finally
 
             try
@@ -463,11 +437,9 @@ namespace Vendas
 
                 string query = "select c.card_id, cp.quant, c.card_nome, c.card_valor " +
                     " from cardapio as c, card_ped as cp, pedidos as p " +
-                    " where c.card_id = cp.id_card and " +
-                    "p.pedidos_id = " + comanda + " AND" +
-                    "p.pedidos_id = cp.id_ped ;";
-
-
+                    " where c.card_id = cp.id_card AND " +
+                    " p.pedidos_id = " + comanda + " AND " +
+                    " p.pedidos_id = cp.id_ped ;";
 
                 DataTable dados = new DataTable();
 
@@ -489,7 +461,6 @@ namespace Vendas
             {
                 conexao.Close();
                 printDocument1.Print();
-
             }
             #endregion
         }
@@ -517,7 +488,6 @@ namespace Vendas
             int i = 0;
             do
             {
-
                 cardapio[i] = Convert.ToString(dtProdutos.Rows[i].Cells[2].Value);
                 MessageBox.Show("Quantidade", Convert.ToString(i), MessageBoxButtons.OK, MessageBoxIcon.Information);
                 quant[i] = Convert.ToInt32(dtProdutos.Rows[i].Cells[1].Value);
@@ -614,11 +584,18 @@ namespace Vendas
             {
                 conexao.Close();
 
-                Vendas vendas = new Vendas();
-
-                vendas.Show();
                 this.Close();
             }
+        }
+
+        private void Fechamento_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Fechamento_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            conexao.Close();
         }
     }
 }

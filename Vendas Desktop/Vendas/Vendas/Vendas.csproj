@@ -87,12 +87,6 @@
     <Compile Include="Telas\Fechamento.Designer.cs">
       <DependentUpon>Fechamento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Telas\Confirmacao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Telas\Confirmacao.Designer.cs">
-      <DependentUpon>Confirmacao.cs</DependentUpon>
-    </Compile>
     <Compile Include="Telas\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,9 +103,6 @@
     </Compile>
     <EmbeddedResource Include="Telas\Fechamento.resx">
       <DependentUpon>Fechamento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Telas\Confirmacao.resx">
-      <DependentUpon>Confirmacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Telas\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

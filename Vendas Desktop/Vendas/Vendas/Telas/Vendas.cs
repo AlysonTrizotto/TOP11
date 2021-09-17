@@ -18,7 +18,7 @@ namespace Vendas
         NpgsqlConnection conexao = new NpgsqlConnection("Host=localhost;Database=Top11;Username=postgres;Password=Matematicas2");
 
         //internal Botao botao = null;
-        
+
         public int comanda;
 
         int contaItens;
@@ -27,19 +27,13 @@ namespace Vendas
         int mes = DateTime.Now.Month;
         int ano = DateTime.Now.Year;
 
-       
+
         public decimal preco;
 
         public Vendas()
         {
             InitializeComponent();
             btnLimpaTudo_Click(null, null);
-            
-        }
-
-
-        private void Vendas_Load(object sender, EventArgs e)
-        {
 
         }
 
@@ -47,8 +41,7 @@ namespace Vendas
         {
             conexao.Close();
 
-            Login login = new Login();
-            login.Show();
+            Application.Exit();
         }
 
         private void btnNovaVenda_Click(object sender, EventArgs e)
@@ -61,20 +54,21 @@ namespace Vendas
 
             try
             {
-                
+                int hora = Convert.ToInt32(DateTime.Now.Hour);
+                int minutos = Convert.ToInt32(DateTime.Now.Minute);
+                int segundos = Convert.ToInt32(DateTime.Now.Second);
                 conexao.Open();
-                
+
 
                 NpgsqlCommand comando = new NpgsqlCommand();
 
                 comando.Connection = conexao;
 
 
-                comando.CommandText = "INSERT INTO pedidos VALUES (" + ID + ", " + 0 + " ,'" + 0.0 + "', '" + ano + "-" + mes + "-" + dia + "' );";
+                comando.CommandText = "INSERT INTO pedidos VALUES (" + ID + ", " + 0 + " ,'" + 0.0 + "', '" + ano + "-" + mes + "-" + dia + "', '" + hora + ":" + minutos + ":" + segundos + "', 'ABERTO', '" + 0.0 + "', 0, 0, 0);";
 
                 comando.ExecuteNonQuery();
 
-                //MessageBox.Show("Cadastrado com sucesso", "Mensagem de alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             catch (Exception ex)
             {
@@ -82,13 +76,11 @@ namespace Vendas
             }
             finally
             {
-                // MessageBox.Show("Chegou no fim", "Fim", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 conexao.Close();
 
-                btnBuscaVendas_Click(null, null);
                 btnBuscaItens_Click(null, null);
                 btnBuscaBairro_Click(null, null);
-                
+
                 preco = 0;
             }
             #endregion
@@ -108,45 +100,7 @@ namespace Vendas
             cBSemCPF.Enabled = true;
         }
 
-        private void btnBuscaVendas_Click(object sender, EventArgs e)
-        {
 
-            //#region Vendas
-            ////abrindo conexao
-            //conexao.Open();
-            //dataGridVendas.Rows.Clear();
-
-            //try
-            //{
-
-            //    string BuscaVendas = "SELECT p.pedidos_id, c.cliente_nome, p.pedidos_valor " +
-            //            " FROM cliente as c, pedidos as p " +
-            //            " WHERE " +
-            //            " p.pedidos_data = '" + ano + "-" + mes + "-" + dia + "'; ";
-
-            //    DataTable dadosVendas = new DataTable();
-
-            //    NpgsqlDataAdapter adaptador = new NpgsqlDataAdapter(BuscaVendas, conexao);
-            //    adaptador.Fill(dadosVendas);
-
-            //    foreach (DataRow linhaVendas in dadosVendas.Rows)
-            //    {
-            //        dataGridVendas.Rows.Add(linhaVendas.ItemArray);
-            //    }
-            //}
-            //catch (Exception exVendas)
-            //{
-            //    conexao.Close();
-            //    MessageBox.Show(exVendas.Message, "Erro no Banco de Dados!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    dataGridVendas.Rows.Clear();
-            //}
-            //finally
-            //{
-            //    //MessageBox.Show("chegou ao fim", "Fim", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    conexao.Close();
-            //}
-            //#endregion
-        }
 
         private void btnBuscaBairro_Click(object sender, EventArgs e)
         {
@@ -185,7 +139,7 @@ namespace Vendas
 
         private void btnBuscaItens_Click(object sender, EventArgs e)
         {
-            
+
             #region itens
             //abrindo conexao
             conexao.Open();
@@ -220,7 +174,7 @@ namespace Vendas
             {
                 conexao.Close();
 
-                
+
                 #region pegando valor do produto
                 if (dataGridItens.Rows.Count > 0)
                 {
@@ -228,7 +182,7 @@ namespace Vendas
                     int passaQuantidade = Convert.ToInt32(txtQuantidade.Text);
                     decimal valorTotal = ValorUnit * passaQuantidade;
                     preco = preco + valorTotal;
-                   
+
                     lblTotal.Text = preco.ToString("N3", new CultureInfo("pt-BR"));
                     contaItens = contaItens + passaQuantidade;
                     lblQuantidade.Text = Convert.ToString(contaItens);
@@ -241,7 +195,7 @@ namespace Vendas
         }
 
         private void btnAdicionaItem_Click(object sender, EventArgs e)
-        {            
+        {
             #region Nova Item
             try
             {
@@ -285,14 +239,14 @@ namespace Vendas
                 {
                     MessageBox.Show("Preencha todos os campos!", "Falta de informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                
+
             }
 
             if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == (char)Keys.Back))
             {
                 e.Handled = true;
                 button1_Click(null, null);
-            }            
+            }
         }
 
 
@@ -302,7 +256,6 @@ namespace Vendas
             //abrindo conexao
             conexao.Open();
             dataGridProduto.Rows.Clear();
-
 
             try
             {
@@ -328,20 +281,20 @@ namespace Vendas
             }
             finally
             {
-                
-                conexao.Close();                
+
+                conexao.Close();
             }
         }
 
         private void txtQuantidade_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
             if (e.KeyChar == 13)
             {
                 if (txtProduto.Text != "" && txtQuantidade.Text != "")
                 {
                     btnAdicionaItem_Click(null, null);
-                    
+
                 }
                 else
                 {
@@ -353,59 +306,38 @@ namespace Vendas
             {
                 e.Handled = true;
                 button1_Click(null, null);
-            }           
+            }
         }
 
 
         private void btnFinaliza_Click(object sender, EventArgs e)
         {
-           
+            
+            int bairro = Convert.ToInt32(dataGridBairro.SelectedCells[0].OwningRow.Cells[0].Value);
+            double passaPreco = Convert.ToDouble(preco.ToString("N3", new CultureInfo("pt-BR")));
+
+            float valor = float.Parse(lblTotal.Text);
+            string stringValue = valor.ToString().Replace(',', '.');
 
             if (DialogResult.Yes == MessageBox.Show("Deseja finalizar?", "Não será possível retornar a esta página", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
-
-
-
-                int hora = Convert.ToInt32(DateTime.Now.Hour);
-                int minutos = Convert.ToInt32(DateTime.Now.Minute);
-                int segundos = Convert.ToInt32(DateTime.Now.Second);
-                int bairro = Convert.ToInt32(dataGridBairro.SelectedCells[0].OwningRow.Cells[0].Value);
-                double passaPreco = Convert.ToDouble(preco.ToString("N3", new CultureInfo("pt-BR")));
-
-
-                float valor = float.Parse(lblTotal.Text);
-                string stringValue = valor.ToString().Replace(',', '.');
-
-                if (cBSemCPF.Checked)
-                {
-                    try
-                    {
-
-                        conexao.Open();
-                        NpgsqlCommand comando = new NpgsqlCommand();
-                        comando.Connection = conexao;
-                        comando.CommandText = "UPDATE pedidos SET pedidos_qtde = '" + Convert.ToInt32(lblQuantidade.Text) + "', pedidos_valor = '" + stringValue + "', pedidos_hora = '" + hora + ":" + minutos + ":" + segundos + "', pedidos_id_bairro_fk = " + bairro + " WHERE pedidos_id = " + comanda + ";";
-                        comando.ExecuteNonQuery();
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Erro ao salvar venda", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        conexao.Close();
-                    }
-                }
-                else if (cBSemBairro.Checked)
+                if (txtCPF.Text != "")
                 {
                     try
                     {
                         conexao.Open();
                         NpgsqlCommand comando = new NpgsqlCommand();
                         comando.Connection = conexao;
-                        comando.CommandText = "UPDATE pedidos SET pedidos_qtde = '" + Convert.ToInt32(lblQuantidade.Text) + "', pedidos_valor ='" + stringValue + "', pedidos_hora = '" + hora + ":" + minutos + ":" + segundos + "', pedidos_cpf_clietne_fk = " + Convert.ToInt32(txtCPF.Text) + " WHERE pedidos_id = " + comanda + ";";
+                        comando.CommandText = " UPDATE pedidos SET pedidos_qtde = " + Convert.ToInt32(lblQuantidade.Text) + ", " +
+                                              " pedidos_valor = '" + 0.0 + "', "+
+                                              " pedidos_status = 'ABERTO', " +
+                                              " pedidos_id_form_pgt = '" + 0 + "', "+
+                                              " pedidos_id_bairro_fk = " + bairro + ", " +
+                                              " pedidos_cpf_cliente_fk = " + Convert.ToInt32(txtCPF.Text) + ", " +
+                                              " WHERE pedidos_id = " + comanda + ";";
+
                         comando.ExecuteNonQuery();
+                        comando.Dispose();
 
                     }
                     catch (Exception ex)
@@ -421,12 +353,13 @@ namespace Vendas
                 {
                     try
                     {
+                        int SemCpf = 0;
                         conexao.Open();
                         NpgsqlCommand comando = new NpgsqlCommand();
                         comando.Connection = conexao;
-                        comando.CommandText = "UPDATE pedidos SET pedidos_qtde = '" + Convert.ToInt32(lblQuantidade.Text) + "', pedidos_valor ='" + stringValue + "', pedidos_hora = '" + hora + ":" + minutos + ":" + segundos + "', pedidos_id_bairro_fk = " + bairro + ", pedidos_cpf_clietne_fk = " + Convert.ToInt32(txtCPF.Text) + " WHERE pedidos_id = " + comanda + ";";
+                        comando.CommandText = "UPDATE pedidos SET pedidos_cpf_cliente_fk = " + SemCpf+ "  WHERE pedidos_id = " + comanda + ";";
                         comando.ExecuteNonQuery();
-
+                        comando.Dispose();
                     }
                     catch (Exception ex)
                     {
@@ -437,15 +370,36 @@ namespace Vendas
                         conexao.Close();
                     }
                 }
-                btnNovaVenda.Visible = true;
+
+
+                if (bairro != 0)
+                {
+                    try
+                    {
+                        conexao.Open();
+                        NpgsqlCommand comando = new NpgsqlCommand();
+                        comando.Connection = conexao;
+                        comando.CommandText = "UPDATE pedidos SET pedidos_id_bairro_fk = " + bairro + " WHERE pedidos_id = " + comanda + ";";
+                        comando.ExecuteNonQuery();
+                        comando.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Erro ao salvar venda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        conexao.Close();
+                    }
+                }
+
+               
                 btnFinaliza.Visible = true;
 
-
-
                 Fechamento fechamento = new Fechamento(lblTotal.Text, comanda);
-                btnLimpaTudo_Click(null, null);
+                
                 fechamento.Show();
-                this.Enabled = false;
+                Verifica(null, null);
             }
         }
 
@@ -458,7 +412,7 @@ namespace Vendas
                 NpgsqlCommand comandoCancelamento = new NpgsqlCommand();
                 comandoCancelamento.Connection = conexao;
                 comandoCancelamento.CommandText = "DELETE FROM card_ped WHERE id_ped = " + comanda + ";";
-                comandoCancelamento.ExecuteNonQuery();           
+                comandoCancelamento.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -507,7 +461,7 @@ namespace Vendas
                 if (txtCPF.Text.Contains(","))
                 {
                     e.Handled = true; //caso exista, aborte
-                    txtCPF.Text.Replace(",", "");                
+                    txtCPF.Text.Replace(",", "");
                 }
             }
 
@@ -532,8 +486,8 @@ namespace Vendas
         }
 
         public void btnLimpaTudo_Click(object sender, EventArgs e)
-        {           
-            txtCPF.Text = "00000000";
+        {
+
             txtProduto.Text = "";
             txtQuantidade.Text = "0";
             lblQuantidade.Text = "0";
@@ -542,7 +496,7 @@ namespace Vendas
             btnBuscaBairro_Click(null, null);
             comanda = 0;
 
-            
+
             btnNovaVenda.Visible = true;
             btnFinaliza.Visible = false;
             btnCancelamento.Visible = false;
@@ -558,9 +512,50 @@ namespace Vendas
 
         }
 
-        public void Vendas_Shown(object sender, EventArgs e)
+        public void Verifica(object sender, EventArgs e)
         {
-            this.Enabled = true;
+            #region tratando os dados de pesquisa
+            //abrir conexão
+            conexao.Open();
+            //gereando a comunicação de pesquisa de usuários
+            string queryTotal = "SELECT * FROM pedidos WHERE pedidos_id = " + comanda + ";";
+
+            NpgsqlCommand executasql = new NpgsqlCommand(queryTotal, conexao);
+            executasql.Parameters.AddWithValue("pedidos_id", comanda);
+
+            NpgsqlDataReader dados = executasql.ExecuteReader();
+
+            #endregion
+
+            if (dados.Read()) //verificando se foi encontrado um registro com esta conta
+            {
+                int FormaPag = Convert.ToInt32(dados.GetString(8));
+                if (FormaPag == 0)
+                {
+                    btnFinaliza.Visible = true;
+                    btnCancelamento.Visible = true;
+                    btnNovaVenda.Visible = false;
+                    conexao.Close();                    
+                }
+                else 
+                {
+                    btnFinaliza.Visible = false;
+                    btnCancelamento.Visible = false;
+                    btnNovaVenda.Visible = true;
+                    btnLimpaTudo_Click(null, null);
+                    conexao.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Houve um erro ao buscar a venda.", "Erro na coleta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            }
+
+        private void Vendas_Load(object sender, EventArgs e)
+        {
+            Verifica(null, null);
         }
     }
 }

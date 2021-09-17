@@ -58,7 +58,6 @@ namespace Vendas
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnNovaVenda = new System.Windows.Forms.Button();
-            this.btnBuscaVendas = new System.Windows.Forms.Button();
             this.btnBuscaBairros = new System.Windows.Forms.Button();
             this.btnBuscaItens = new System.Windows.Forms.Button();
             this.btnAdicionaItem = new System.Windows.Forms.Button();
@@ -178,7 +177,6 @@ namespace Vendas
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(1240, 30);
             this.txtCPF.TabIndex = 3;
-            this.txtCPF.Text = "000000000";
             this.txtCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCPF_KeyPress);
             // 
             // label1
@@ -362,17 +360,6 @@ namespace Vendas
             this.btnNovaVenda.UseVisualStyleBackColor = true;
             this.btnNovaVenda.Click += new System.EventHandler(this.btnNovaVenda_Click);
             // 
-            // btnBuscaVendas
-            // 
-            this.btnBuscaVendas.Location = new System.Drawing.Point(674, 673);
-            this.btnBuscaVendas.Name = "btnBuscaVendas";
-            this.btnBuscaVendas.Size = new System.Drawing.Size(101, 23);
-            this.btnBuscaVendas.TabIndex = 18;
-            this.btnBuscaVendas.Text = "Busca vendas";
-            this.btnBuscaVendas.UseVisualStyleBackColor = true;
-            this.btnBuscaVendas.Visible = false;
-            this.btnBuscaVendas.Click += new System.EventHandler(this.btnBuscaVendas_Click);
-            // 
             // btnBuscaBairros
             // 
             this.btnBuscaBairros.Location = new System.Drawing.Point(885, 244);
@@ -520,7 +507,6 @@ namespace Vendas
             this.Controls.Add(this.btnAdicionaItem);
             this.Controls.Add(this.btnBuscaItens);
             this.Controls.Add(this.btnBuscaBairros);
-            this.Controls.Add(this.btnBuscaVendas);
             this.Controls.Add(this.btnNovaVenda);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblQuantidade);
@@ -538,9 +524,7 @@ namespace Vendas
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VENDAS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Vendas_FormClosed);
             this.Load += new System.EventHandler(this.Vendas_Load);
-            this.Shown += new System.EventHandler(this.Vendas_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridItens)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBairro)).EndInit();
@@ -562,7 +546,6 @@ namespace Vendas
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridItens;
-        private System.Windows.Forms.Button btnBuscaVendas;
         private System.Windows.Forms.Button btnBuscaItens;
         private System.Windows.Forms.Button btnAdicionaItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn CUPOM1;
