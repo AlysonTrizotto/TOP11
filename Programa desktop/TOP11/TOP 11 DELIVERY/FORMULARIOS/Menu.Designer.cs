@@ -29,7 +29,6 @@ namespace TOP_11_DELIVERY
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.BrMenu = new System.Windows.Forms.MenuStrip();
             this.MenuCadastro = new System.Windows.Forms.ToolStripMenuItem();
             this.cLIENTEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,32 +46,8 @@ namespace TOP_11_DELIVERY
             this.Numero = new System.Windows.Forms.NumericUpDown();
             this.btnSalvaHora = new System.Windows.Forms.Button();
             this.lblTempo = new System.Windows.Forms.Label();
-            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dtProdutos = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QUANTIDADE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CARDÁPIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VALOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtPed = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.lbl_SemComanda = new System.Windows.Forms.Label();
-            this.Buscar_Comandas = new System.Windows.Forms.Button();
             this.BrMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Numero)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtProdutos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtPed)).BeginInit();
             this.SuspendLayout();
             // 
             // BrMenu
@@ -245,208 +220,11 @@ namespace TOP_11_DELIVERY
             this.lblTempo.TabIndex = 4;
             this.lblTempo.Text = "Tempo atual configurado: ";
             // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 60000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // dtProdutos
-            // 
-            this.dtProdutos.AllowUserToAddRows = false;
-            this.dtProdutos.AllowUserToDeleteRows = false;
-            this.dtProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtProdutos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.QUANTIDADE,
-            this.CARDÁPIO,
-            this.VALOR});
-            this.dtProdutos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtProdutos.Location = new System.Drawing.Point(0, 553);
-            this.dtProdutos.Name = "dtProdutos";
-            this.dtProdutos.ReadOnly = true;
-            this.dtProdutos.Size = new System.Drawing.Size(1200, 139);
-            this.dtProdutos.TabIndex = 6;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 50;
-            // 
-            // QUANTIDADE
-            // 
-            this.QUANTIDADE.HeaderText = "QUANTIDADE";
-            this.QUANTIDADE.Name = "QUANTIDADE";
-            this.QUANTIDADE.ReadOnly = true;
-            this.QUANTIDADE.Width = 80;
-            // 
-            // CARDÁPIO
-            // 
-            this.CARDÁPIO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CARDÁPIO.HeaderText = "CARDÁPIO";
-            this.CARDÁPIO.Name = "CARDÁPIO";
-            this.CARDÁPIO.ReadOnly = true;
-            // 
-            // VALOR
-            // 
-            this.VALOR.HeaderText = "VALOR";
-            this.VALOR.Name = "VALOR";
-            this.VALOR.ReadOnly = true;
-            this.VALOR.Width = 80;
-            // 
-            // dtPed
-            // 
-            this.dtPed.AllowUserToAddRows = false;
-            this.dtPed.AllowUserToDeleteRows = false;
-            this.dtPed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtPed.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
-            this.dtPed.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dtPed.Location = new System.Drawing.Point(0, 414);
-            this.dtPed.Name = "dtPed";
-            this.dtPed.ReadOnly = true;
-            this.dtPed.Size = new System.Drawing.Size(1200, 139);
-            this.dtPed.TabIndex = 7;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "QUANTIDADE";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.HeaderText = "CARDÁPIO";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "VALOR";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "DATA";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "HORA";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "STATUS";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "TROCO";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 80;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn9.HeaderText = "BAIRRO";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn10.HeaderText = "CLIENTE";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "FORMA DE PAGAMENTO";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 80;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ForeColor = System.Drawing.Color.Black;
-            this.checkBox1.Location = new System.Drawing.Point(26, 134);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(232, 24);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "IMPRESSÃO AUTOMÁTICA";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            this.checkBox1.CheckStateChanged += new System.EventHandler(this.checkBox1_CheckStateChanged);
-            // 
-            // lbl_SemComanda
-            // 
-            this.lbl_SemComanda.AutoSize = true;
-            this.lbl_SemComanda.ForeColor = System.Drawing.Color.Black;
-            this.lbl_SemComanda.Location = new System.Drawing.Point(22, 174);
-            this.lbl_SemComanda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_SemComanda.Name = "lbl_SemComanda";
-            this.lbl_SemComanda.Size = new System.Drawing.Size(293, 20);
-            this.lbl_SemComanda.TabIndex = 9;
-            this.lbl_SemComanda.Text = "NÃO HÁ COMANDAS PARA IMPRIMIR";
-            // 
-            // Buscar_Comandas
-            // 
-            this.Buscar_Comandas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Buscar_Comandas.ForeColor = System.Drawing.Color.Black;
-            this.Buscar_Comandas.Location = new System.Drawing.Point(26, 216);
-            this.Buscar_Comandas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Buscar_Comandas.Name = "Buscar_Comandas";
-            this.Buscar_Comandas.Size = new System.Drawing.Size(143, 30);
-            this.Buscar_Comandas.TabIndex = 10;
-            this.Buscar_Comandas.Text = "SALVAR HORÁRIO";
-            this.Buscar_Comandas.UseVisualStyleBackColor = true;
-            this.Buscar_Comandas.Click += new System.EventHandler(this.Buscar_Comandas_Click);
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 692);
-            this.Controls.Add(this.Buscar_Comandas);
-            this.Controls.Add(this.lbl_SemComanda);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.dtPed);
-            this.Controls.Add(this.dtProdutos);
             this.Controls.Add(this.lblTempo);
             this.Controls.Add(this.btnSalvaHora);
             this.Controls.Add(this.Numero);
@@ -465,8 +243,6 @@ namespace TOP_11_DELIVERY
             this.BrMenu.ResumeLayout(false);
             this.BrMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Numero)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtProdutos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtPed)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -484,33 +260,11 @@ namespace TOP_11_DELIVERY
         private System.Windows.Forms.ToolStripMenuItem eDITARToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eXCLUIRToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fORMADEPAGAMENTOToolStripMenuItem;
-        private System.Drawing.Printing.PrintDocument printDocument1;
         public System.Windows.Forms.ToolStripMenuItem MenuCadastro;
         public System.Windows.Forms.ToolStripMenuItem menuPedidos;
         public System.Windows.Forms.ToolStripMenuItem menuVendas;
         public System.Windows.Forms.ToolStripMenuItem menuSair;
         public System.Windows.Forms.MenuStrip BrMenu;
         public System.Windows.Forms.ToolStripMenuItem cLIENTEToolStripMenuItem;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.DataGridView dtProdutos;
-        private System.Windows.Forms.DataGridView dtPed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QUANTIDADE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CARDÁPIO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VALOR;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label lbl_SemComanda;
-        private System.Windows.Forms.Button Buscar_Comandas;
     }
 }

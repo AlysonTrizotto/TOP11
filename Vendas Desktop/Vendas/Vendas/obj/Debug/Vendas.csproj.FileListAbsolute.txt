@@ -60,7 +60,6 @@ E:\Top 11(projeto em andamento)\AlysonTrizotto\Vendas Desktop\Vendas\Vendas\bin\
 E:\Top 11(projeto em andamento)\AlysonTrizotto\Vendas Desktop\Vendas\Vendas\bin\Debug\System.Threading.Tasks.Extensions.xml
 E:\Top 11(projeto em andamento)\AlysonTrizotto\Vendas Desktop\Vendas\Vendas\bin\Debug\System.ValueTuple.xml
 E:\Top 11(projeto em andamento)\AlysonTrizotto\Vendas Desktop\Vendas\Vendas\obj\Debug\Vendas.csproj.AssemblyReference.cache
-E:\Top 11(projeto em andamento)\AlysonTrizotto\Vendas Desktop\Vendas\Vendas\obj\Debug\Vendas.Fechamento.resources
 E:\Top 11(projeto em andamento)\AlysonTrizotto\Vendas Desktop\Vendas\Vendas\obj\Debug\Vendas.Login.resources
 E:\Top 11(projeto em andamento)\AlysonTrizotto\Vendas Desktop\Vendas\Vendas\obj\Debug\Vendas.Properties.Resources.resources
 E:\Top 11(projeto em andamento)\AlysonTrizotto\Vendas Desktop\Vendas\Vendas\obj\Debug\Vendas.Vendas.resources
